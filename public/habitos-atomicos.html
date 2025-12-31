@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hábitos Atómicos - Audiolibro</title>
+
+  <!-- Iconos y fuentes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="img/lo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-Fondo: #4040fb;
+      --color-navbar: #000000;
+      --color-botones: #00FF37;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--color-Fondo);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    header {
+      background-color: var(--color-navbar);
+      color: var(--color-botones);
+      padding: 0.5em 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header nav a {
+      color: var(--color-botones);
+      margin-left: 1.5em;
+      text-decoration: none;
+    }
+
+    header nav a:hover {
+      border: 2px solid var(--color-botones);
+      border-radius: 8px;
+      box-shadow: 0 0 10px var(--color-botones), 0 0 20px var(--color-botones);
+      background-color: rgba(0, 255, 55, 0.05);
+      color: var(--color-botones);
+    }
+
+    .logo {
+      height: 100px;
+      cursor: pointer;
+    }
+
+    .libro0ne {
+      background-color: #0f172a;
+      color: #fff;
+      padding: 40px;
+      min-height: 100vh;
+    }
+
+    .libro-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      background: #112d3f;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .libro-info img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    .detalle {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .detalle h1 {
+      font-size: 28px;
+      color: #00ff99;
+      margin-bottom: 10px;
+    }
+
+    .detalle h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .detalle p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .botones-libro {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .btn-volver, .btn-escuchar {
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      border: 2px solid #00ff99;
+      background-color: transparent;
+      color: #00ff99;
+      box-shadow: 0 0 5px #00ff99;
+      transition: all 0.3s ease;
+    }
+
+    .btn-volver:hover, .btn-escuchar:hover {
+      background-color: #00ff99;
+      color: #0f172a;
+      box-shadow: 0 0 15px #00ff99, 0 0 30px #00ff99;
+    }
+
+    .audio-player {
+      margin-top: 30px;
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    .footer-elegante {
+      background-color: var(--color-navbar);
+      color: #d6d6d6;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px 20px 20px;
+      font-size: 0.9rem;
+    }
+
+    .footer-contenido {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-izquierda a, .footer-derecha a {
+      color: #bbb;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .footer-izquierda a:hover, .footer-derecha a:hover {
+      color: #ffffff;
+    }
+
+    .footer-linea {
+      margin: 25px 0 15px;
+      height: 1px;
+      background-color: #1c1f26;
+      border: none;
+    }
+
+    .footer-copy {
+      text-align: center;
+      color: #888;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index.html"><img src="img/lo.png" alt="logo" class="logo" /></a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="Audiolibros.html">Audiolibros</a>
+      <a href="Categorias.html">Categorías</a>
+      <a href="login.html">Iniciar sesión</a>
+    </nav>
+  </header>
+
+  <main class="libro0ne">
+    <div class="libro-info">
+      <img src="img/resumen-del-libro-habitos-atomicos-de-james-clear.webp" alt="Hábitos Atómicos">
+      <div class="detalle">
+        <h1>Hábitos Atómicos</h1>
+        <h3>James Clear</h3>
+        <p>
+          "Hábitos Atómicos" es una guía práctica sobre cómo cambiar tus hábitos para transformar tu vida. James Clear propone un enfoque basado en mejorar un 1% cada día mediante la construcción de sistemas de hábitos positivos.
+        </p>
+        <p>
+          El autor explica cómo los hábitos funcionan, cómo formarlos, cómo eliminarlos y cómo diseñar un entorno que te empuje al éxito. Se enfoca en pequeños cambios que generan grandes resultados a largo plazo.
+        </p>
+        <p>
+          Este audiolibro es perfecto para quienes desean cambiar su mentalidad, su productividad y alcanzar metas personales y profesionales mediante hábitos sostenibles.
+        </p>
+
+        <div id="audioPlayer" class="audio-player">
+          <audio controls>
+            <source src="/public/Sound/habitos-atomicos.m4a" type="audio/mpeg">
+            Tu navegador no soporta el reproductor de audio.
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <div class="botones-libro">
+      <a href="Audiolibros.html" class="btn-volver">← Volver</a>
+      <a href="#" class="btn-escuchar">▶ Escuchar Ahora</a>
+    </div>
+  </main>
+
+  <footer class="footer-elegante">
+    <div class="footer-contenido">
+      <div class="footer-izquierda">
+        <a href="https://www.youtube.com/@AudioLibrosco"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/audiolibrosco/"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="footer-derecha">
+        <a href="index.html">Inicio</a>
+        <a href="Audiolibros.html">Audiolibros</a>
+        <a href="politicas.html">Políticas de uso</a>
+      </div>
+    </div>
+    <div class="footer-linea"></div>
+    <div class="footer-copy">
+      © Audiolibros Company Monse ® – Todos los derechos reservados 2025
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const botonEscuchar = document.querySelector('.btn-escuchar');
+      const reproductor = document.getElementById('audioPlayer');
+      const audio = reproductor.querySelector('audio');
+
+      botonEscuchar.addEventListener('click', function (e) {
+        e.preventDefault();
+        reproductor.style.display = 'block';
+        audio.play();
+      });
+    });
+  </script>
+</body>
+</html>

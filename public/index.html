@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Descubre la manera de cambiar tu MAISER!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="img/lo.png">
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <a href="index.html">
+      <img src="img/lo.png" alt="logo" class="logo" />
+    </a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="Audiolibros.html">Audiolibros</a>
+      <a href="categorias.html">Categorías</a>
+      <a href="login.html">Iniciar sesión</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+<section class="hero">
+    <video autoplay muted loop playsinline class="video-hero">
+      <source src="/viu/Llados fitness_7379364472667901190-no-watermark.mp4" type="video/mp4">
+      Tu navegador no soporta videos en formato .mov.
+    </video>
+    <div class="hero-contenido">
+      <h1>Descubre la forma de cambia<br>
+        tu <span class="subrayado">MEISER</span> de pensamiento</h1>
+      <p>Escucha audiolibros donde y cuando quieras</p>
+        <a href="Audiolibros.html" class="boton-explorar">Explorar ahora</a>
+    </div>
+  </section>
+
+  <!-- AUDIOLIBROS DESTACADOS -->
+  <section class="Lib">
+    <h2 class="Tittle-Lib">Audiolibros Destacados</h2>
+    <div class="info-tags">
+      <a href="Audiolibros.html?filter=top" class="tag">🔥 Top de la semana</a>
+      <a href="Audiolibros.html?filter=morning" class="tag">☀️ Para empezar tu día</a>
+      <a href="Audiolibros.html?filter=expert" class="tag">⭐ Recomendados por expertos</a>
+    </div>
+    <div class="libros">
+      <!-- Libro 1 -->
+      <a href="el-poder-del-habito.html" class="libro-link">
+        <div class="libro" data-category="top morning">
+         <img src="img/EL_poder_de_los_habitos.webp" alt="Libro 1">
+          <h2 class="Titulo">El Poder Del Hábito</h2>
+          <p class="Autor">Charles Duhigg</p>
+        </div>
+      </a>
+
+      <!-- Libro 2 -->
+      <a href="los-7-habitos-de-la-gente-altamente-efectiva.html" class="libro-link">
+        <div class="libro" data-category="expert">
+          <img src="img/content.jpeg" alt="Libro 2">
+          <h2 class="Titulo">Los 7 Hábitos De La Gente Altamente Efectiva</h2>
+          <p class="Autor">Stephen R. Covey</p>
+        </div>
+      </a>
+
+      <!-- Libro 3 -->
+      <a href="piensa-y-hazte-rico.html" class="libro-link">
+        <div class="libro" data-category="top">
+          <img src="img/napoli.jpeg" alt="Libro 3">
+          <h2 class="Titulo">Piensa Y Hazte Rico</h2>
+          <p class="Autor">Napoleon Hill</p>
+        </div>
+      </a>
+
+      <!-- Libro 4 -->
+      <a href="habitos-atomicos.html" class="libro-link">
+        <div class="libro" data-category="morning expert">
+          <img src="img/resumen-del-libro-habitos-atomicos-de-james-clear.webp" alt="Libro 4">
+          <h2 class="Titulo">Hábitos Atómicos</h2>
+          <p class="Autor">James Clear</p>
+        </div>
+      </a>
+
+      <!-- Libro 5 -->
+      <a href="atrevete-a-liderar.html" class="libro-link">
+        <div class="libro" data-category="morning">
+          <img src="img/atreve.webp" alt="Libro 5">
+          <h2 class="Titulo">Atrévete a Liderar</h2>
+          <p class="Autor">Brené Brown</p>
+        </div>
+      </a>
+
+      <!-- Libro 6 -->
+      <a href="el-metodo-lean-startup.html" class="libro-link">
+        <div class="libro" data-category="expert">
+          <img src="img/el metodo.webp" alt="Libro 6">
+          <h2 class="Titulo">El Método Lean Startup</h2>
+          <p class="Autor">Eric Ries</p>
+        </div>
+      </a>
+
+      <!-- Libro 7 -->
+      <a href="empieza-con-el-porque.html" class="libro-link">
+        <div class="libro" data-category="top expert">
+          <img src="img/Empieza con el porqué.png" alt="Libro 7">
+          <h2 class="Titulo">Empieza Con El Porqué</h2>
+          <p class="Autor">Simon Sinek</p>
+        </div>
+      </a>
+
+      <!-- Libro 8 -->
+      <a href="la-sorprendente-verdad-sobrew-que-nos-motiva.html" class="libro-link">
+        <div class="libro" data-category="morning">
+          <img src="img/motiva.jpeg" alt="Libro 8">
+          <h2 class="Titulo">La Sorprendente Verdad Sobre Qué Nos Motiva</h2>
+          <p class="Autor">Daniel H. Pink</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="section-categorias" id="categorias">
+    <h3 class="categorias-title">Categorías</h3>
+    <div class="categorias">
+      <a href="categoria-desarrollo-personal.html" class="categoria">🧠 Desarrollo Personal</a>
+      <a href="categoria-superacion-personal.html" class="categoria">🎯 Superación Personal</a>
+      <a href="categoria-motivacion&exito.html" class="categoria">🚀 Motivación y Éxito</a>
+      <a href="categoria-liderazgo&productividad.html" class="categoria">💼 Liderazgo y Productividad</a>
+      <a href="categoria-educacion-financiera.html" class="categoria">💰 Educación Financiera</a>
+      <a href="categoria-herramientas-de-transformacion.html" class="categoria">🛠️ Herramientas de Transformación</a>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="porque-audiolibros">
+    <h4 class="Tittle-porque">¿Por qué Audiolibros?</h4>
+    <div class="beneficios-audio">
+      <div class="beneficio"><span class="icon">🎧</span><h3>Accesibles en todo momento</h3><p>Escuchá mientras conducís, entrenás o<br> cocinás. Conectate al conocimiento en cualquier parte</p></div>
+      <div class="beneficio"><span class="icon">🧠</span><h3>Aprendizaje sin esfuerzo</h3><p>Consumí ideas poderosas sin fatiga<br> visual. Tu mente retiene más al escuchar narraciones claras y bien estructuradas.</p></div>
+      <div class="beneficio"><span class="icon">⏱️</span><h3>Optimizá tu tiempo</h3><p>Aprovecha momentos libres del día para crecer, reflexionar y transformarte escuchando grandes ideas.</p></div>
+      <div class="beneficio"><span class="icon">🌍</span><h3>Adaptados a tu estilo de vida</h3><p>Con el ritmo acelerado de hoy, los audiolibros te ofrecen desarrollo personal sin interrumpir tu rutina.</p></div>
+    </div>
+    <p class="frase-cierre">"No siempre tenés tiempo para leer, pero siempre podés escuchar."</p>
+  </section>
+
+  <!-- Sección inspiradora -->
+  <section class="suscripcion-inspiradora">
+    <div class="overlay"></div>
+    <div class="texto-suscripcion">
+      <h2>Todo cambia cuando entrenás tu mente</h2>
+      <p>Convertí cada momento en una oportunidad de crecimiento.</p>
+      <p>Escuchá ideas, aprendé de los grandes, elevá tu manera de pensar.</p>
+      <p>Tu mentalidad crea tu realidad. Empezá hoy.</p>
+      <a href="registre.html" class="btn-inspira">Empieza hoy</a>
+    </div>
+  </section>
+
+    <section class="precios-suscripcion">
+    <div class="intro-precios">
+      <h2>Elige Tu Camino de Transformación</h2>
+      <p>Accede a cientos de audiolibros, recursos exclusivos y entrenamientos mentales<br>
+        diseñados para tu crecimiento personal. Sin límites y sin excusas.</p>
+    </div>
+
+    <div class="planes">
+      <div class="plan">
+        <h3>Plan Básico</h3>
+        <p class="subtexto">Cobro mensual automático</p>
+        <p class="precio-original">$19.90</p>
+        <p class="precio"><span>$12.90</span>/mes</p>
+        <a href="https://buy.stripe.com/test_fZu6oI15bcuZ4uueZq7AI00" class="btn-suscribe">Suscribirse</a>
+        <ul>
+          <li>Acceso ilimitado</li>
+          <li>Actualizaciones frecuentes</li>
+          <li>Soporte básico</li>
+        </ul>
+      </div>
+
+      <div class="plan destacado">
+        <div class="etiqueta-descuento">AHORRA $179.90</div>
+        <h3>Pase Anual</h3>
+        <p class="subtexto">Pago único anual</p>
+        <p class="precio-original">$238.80</p>
+        <p class="precio"><span>$4.99</span>/mes</p>
+        <a href="#" class="btn-suscribe">Suscribirse</a>
+        <ul>
+          <li>Precio reducido</li>
+          <li>Acceso a mentorías</li>
+          <li>Comunidad privada</li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <h3>Acceso de por vida</h3>
+        <p class="subtexto">Pago único</p>
+        <p class="precio-original">$837</p>
+        <p class="precio"><span>$499</span></p>
+        <a href="#" class="btn-suscribe">Acceso para siempre</a>
+        <ul>
+          <li>Sin renovaciones</li>
+          <li>Soporte premium</li>
+          <li>Actualizaciones garantizadas</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODOS DE PAGO -->
+  <section class="bloque-pago-iconos">
+    <div class="contenedor-pago-iconos">
+      <h2>Métodos de Pago Aceptados</h2>
+      <p>Procesamos pagos internacionales seguros.</p>
+      <div class="iconos-pago">
+        <i class="fa-brands fa-cc-visa"></i>
+        <i class="fa-brands fa-cc-mastercard"></i>
+        <i class="fa-brands fa-cc-amex"></i>
+        <i class="fa-brands fa-cc-discover"></i>
+        <i class="fa-brands fa-paypal"></i>
+      </div>
+      <div class="seguridad-icono">
+        <i class="fas fa-lock"></i> Compra segura mediante SSL
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-elegante">
+    <div class="footer-contenido">
+      <div class="footer-izquierda">
+        <a href="https://www.youtube.com/@AudioLibrosco" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/audiolibrosco/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="footer-derecha">
+        <a href="index.html">Inicio</a>
+        <a href="Audiolibros.html">Audiolibros</a>
+        <a href="politicas.html">Políticas de uso</a>
+      </div>
+    </div>
+    <div class="footer-linea"></div>
+    <div class="footer-copy">
+      © Audiolibros Company Monse ® – Todos los derechos reservados 2025
+    </div>
+  </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>

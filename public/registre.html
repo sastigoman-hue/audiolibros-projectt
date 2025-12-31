@@ -1,0 +1,152 @@
+<!-- registre.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrarse</title>
+  <link rel="icon" type="image/png" href="img/lo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('img/lo.png') no-repeat center fixed;
+      background-size: contain;
+      background-color: #0f172a;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: rgba(17, 45, 63, 0.9);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 255, 51, 0.3);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      text-align: center;
+      color: #00ff99;
+    }
+
+    #msgPago {
+      color: #00ff99;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: transparent;
+      color: #00ff99;
+      border: 2px solid #00ff99;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00ff99;
+      color: #0f172a;
+      box-shadow: 0 0 15px #00ff99;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Crear una cuenta</h2>
+    <p id="msgPago" style="display:none;">¡Gracias por tu compra! Finaliza el registro para activar tu cuenta.</p>
+
+    <form id="registerForm">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" required>
+
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" required>
+
+      <button type="submit" id="registerBtn">Registrarse</button>
+    </form>
+  </div>
+
+  <script>
+    const API_URL = location.hostname === 'localhost'
+      ? 'http://localhost:5000'
+      : 'https://audiolibrosco.com';
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const pagoExitoso = urlParams.get('paid') === 'true';
+
+    if (pagoExitoso) {
+      document.getElementById('msgPago').style.display = 'block';
+    }
+
+    document.getElementById("registerForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const btn = document.getElementById("registerBtn");
+
+      if (name.length < 2 || !email.includes('@') || password.length < 6) {
+        alert("Nombre muy corto, correo inválido o contraseña muy débil.");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Cargando...";
+
+      try {
+        const response = await fetch(`${API_URL}/api/register`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert("Registro exitoso. Inicia sesión para acceder a las categorías.");
+          window.location.href = "login.html";
+        } else {
+          alert(data.message || "Error en el registro");
+        }
+      } catch (err) {
+        alert("Error al conectar con el servidor");
+        console.error(err);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Registrarse";
+      }
+    });
+  </script>
+</body>
+</html>

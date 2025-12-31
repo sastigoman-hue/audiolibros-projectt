@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Herramientas de Transformación - Audiolibros</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="img/lo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-Fondo: #4040fb;
+      --color-navbar: #000000;
+      --color-botones: #00FF37;
+      --color-translucida: #00ff80cc;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--color-Fondo);
+      color: #ffffff;
+    }
+
+    header {
+      background-color: var(--color-navbar);
+      color: var(--color-botones);
+      padding: 0.5em 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header nav a {
+      color: var(--color-botones);
+      margin-left: 1.5em;
+      text-decoration: none;
+    }
+
+    header nav a:hover {
+      border: 2px solid var(--color-botones);
+      border-radius: 8px;
+      box-shadow: 0 0 10px var(--color-botones), 0 0 20px var(--color-botones);
+      background-color: rgba(0, 255, 55, 0.05);
+    }
+
+    .logo {
+      height: 100px;
+      cursor: pointer;
+    }
+
+    .Lib {
+      background: linear-gradient(to right, rgba(10, 25, 47, 0.95), rgba(0, 40, 60, 0.95));
+      padding: 4rem 2rem;
+      border-radius: 12px;
+      backdrop-filter: blur(4px);
+    }
+
+    .Tittle-Lib {
+      text-align: center;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 2rem;
+      color: var(--color-translucida);  /* Verde neón translúcido */
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.7); /* Sombra dorada */
+      letter-spacing: 2px;
+      margin-top: 0;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+    }
+
+    .libros {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      padding: 0 1rem;
+    }
+
+    .libro {
+      width: 220px;
+      text-align: center;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.04);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .libro:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 255, 128, 0.25);
+    }
+
+    /* Tamaño uniforme de imágenes */
+    .libro img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Estilo para títulos de libros */
+    .Titulo {
+      font-family: 'Merriweather', 'Georgia', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin: 0.5rem 0 0.25rem 0;
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    /* Estilo para autores */
+    .Autor {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 0.95rem;
+      color: #ccc;
+      font-style: italic;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+
+    @media (max-width: 768px) {
+    .libro {
+      width: calc(50% - 20px);
+    }
+    }
+
+    @media (max-width: 480px) {
+    .libro {
+      width: 100%;
+    }
+    }
+
+    .libro-link {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+    }
+
+    .footer-elegante {
+      background-color: var(--color-navbar);
+      color: #d6d6d6;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px 20px 20px;
+      font-size: 0.9rem;
+    }
+
+    .footer-contenido {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-izquierda a,
+    .footer-derecha a {
+      color: #bbb;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-izquierda a:hover,
+    .footer-derecha a:hover {
+      color: #ffffff;
+    }
+
+    .footer-linea {
+      margin: 25px 0 15px;
+      height: 1px;
+      background-color: #1c1f26;
+      border: none;
+    }
+
+    .footer-copy {
+      text-align: center;
+      color: #888;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="img/lo.png" alt="logo" class="logo" /></a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="Audiolibros.html">Audiolibros</a>
+      <a href="Categorias.html">Categorías</a>
+      <a href="Login.html">Iniciar sesión</a>
+    </nav>
+  </header>
+
+<section class="Lib">
+    <h2 class="Tittle-Lib">Herramientas de Transformación</h2>
+    <div class="libros">
+      <!-- Aquí van tus libros como ya están en tu HTML original -->
+      <!-- Libro 1 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Historias inspiradoras">
+          <img src="img/" alt="Libro 1">
+          <h2 class="Titulo">Los Seis Pilares de la Autoestima</h2>
+          <p class="Autor">Nathaniel Branden</p>
+        </div>
+      </a>
+
+      <!-- Libro 2 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Historias inspiradoras">
+          <img src="img/" alt="Libro 2">
+          <h2 class="Titulo">Confianza en uno Mismo</h2>
+          <p class="Autor">Ralph Waldo Emerson</p>
+        </div>
+      </a>
+
+      <!-- Libro 3 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Historias inspiradoras">
+          <img src="img/" alt="Libro 3">
+          <h2 class="Titulo">Ámate, Como si tu Vida Dependiera de Ello</h2>
+          <p class="Autor">Kamal Ravikant</p>
+        </div>
+      </a>
+
+      <!-- Libro 4 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Historias inspiradoras">
+          <img src="img/" alt="Libro 4">
+          <h2 class="Titulo">¡Ten Confianza En<br> Ti Misma!</h2>
+          <p class="Autor">Gael Lindenfield</p>
+        </div>
+      </a>
+
+      <!-- Libro 5 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Historias inspiradoras">
+          <img src="img/" alt="Libro 5">
+          <h2 class="Titulo">Autoestima Automática: Cree En Ti Y Alcanza<br> Tus Metas</h2>
+          <p class="Autor">Silvia Congost</p>
+        </div>
+      </a>
+
+      <!-- Libro 6 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Disciplina">
+          <img src="img/" alt="Libro 6">
+          <h2 class="Titulo">El Obstáculo es el Camino</h2>
+          <p class="Autor">Ryan Holiday</p>
+        </div>
+      </a>
+
+      <!-- Libro 7 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Disciplina">
+          <img src="img/" alt="Libro 7">
+          <h2 class="Titulo">Más Fuerte que Nunca</h2>
+          <p class="Autor">Brené Brown</p>
+        </div>
+      </a>
+
+      <!-- Libro 8 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Disciplina">
+          <img src="img/" alt="Libro 8">
+          <h2 class="Titulo">¿Por Qué<br> La Resiliencia?</h2>
+          <p class="Autor">Boris Cyrulnik</p>
+        </div>
+      </a>
+
+      <!-- Libro 9 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Disciplina">
+         <img src="img/" alt="Libro 9">
+          <h2 class="Titulo">Una Vida en Resiliencia. El Arte de Vivir en Peligro</h2>
+          <p class="Autor">Julian Reid Brad Evans</p>
+        </div>
+      </a>
+
+      <!-- Libro 10 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Disciplina">
+          <img src="img" alt="Libro 10">
+          <h2 class="Titulo">CURACION EMOCIONAL</h2>
+          <p class="Autor">David Servan-Schreiber</p>
+        </div>
+      </a>
+
+      <!-- Libro 11 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Enfoque y metas">
+          <img src="img/" alt="Libro 11">
+          <h2 class="Titulo">Despierta tu<br> Heroe Interior</h2>
+          <p class="Autor">Victor Hugo Manzanilla</p>
+        </div>
+      </a>
+
+      <!-- Libro 12 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Enfoque y metas">
+          <img src="img/" alt="Libro 12">
+          <h2 class="Titulo">Una Nueva Tierra</h2>
+          <p class="Autor">Eckhart Tolle</p>
+        </div>
+      </a>
+
+      <!-- Libro 13 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Enfoque y metas">
+          <img src="img/" alt="Libro 13">
+          <h2 class="Titulo">Tus Zonas Erróneas</h2>
+          <p class="Autor">Wayne W. Dyer</p>
+        </div>
+      </a>
+
+      <!-- Libro 14 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Enfoque y metas">
+          <img src="img/" alt="Libro 14">
+          <h2 class="Titulo">La Maestria del Amor: Una Guia Practica Para el Arte de las Relac Iones</h2>
+          <p class="Autor">Dr. Miguel Ruiz</p>
+        </div>
+      </a>
+
+      <!-- Libro 15 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Enfoque y metas">
+          <img src="img/" alt="Libro 15">
+          <h2 class="Titulo">¿Quien te Llorara Cuando Mueras?</h2>
+          <p class="Autor">Robin Sharma</p>
+        </div>
+      </a>
+
+      <!-- Libro 16 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Enfoque y metas">
+          <img src="img/" alt="Libro 16">
+          <h2 class="Titulo">El arte de no amargarse<br> la vida</h2>
+          <p class="Autor">Rafael Santandreu</p>
+        </div>
+      </a>
+
+      <!-- Libro 17 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Enfoque y metas">
+          <img src="img/" alt="Libro 17">
+          <h2 class="Titulo">El arte de no amargarse<br> la vida</h2>
+          <p class="Autor">Rafael Santandreu</p>
+        </div>
+      </a>
+
+      <!-- Libro 18 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Enfoque y metas">
+          <img src="img/" alt="Libro 18">
+          <h2 class="Titulo">El arte de no amargarse<br> la vida</h2>
+          <p class="Autor">Rafael Santandreu</p>
+        </div>
+      </a>
+
+      <!-- Libro 19 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Enfoque y metas">
+          <img src="img/" alt="Libro 19">
+          <h2 class="Titulo">El arte de no amargarse<br> la vida</h2>
+          <p class="Autor">Rafael Santandreu</p>
+        </div>
+      </a>
+
+      <!-- Libro 20 -->
+      <a href=".html" class="libro-link">
+        <div class="libro" data-category="Enfoque y metas">
+          <img src="img/" alt="Libro 20">
+          <h2 class="Titulo">El arte de no amargarse<br> la vida</h2>
+          <p class="Autor">Rafael Santandreu</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer-elegante">
+    <div class="footer-contenido">
+      <div class="footer-izquierda">
+        <a href="https://www.youtube.com/@AudioLibrosco"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/audiolibrosco/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="footer-derecha">
+        <a href="index.html">Inicio</a>
+        <a href="Audiolibros.html">Audiolibros</a>
+        <a href="politicas.html">Políticas de uso</a>
+      </div>
+    </div>
+    <div class="footer-linea"></div>
+    <div class="footer-copy">
+      © Audiolibros Company Monse ® – Todos los derechos reservados 2025
+    </div>
+  </footer>

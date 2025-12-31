@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Educación Financiera - Audiocategoria</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="img/lo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-Fondo: #4040fb;
+      --color-navbar: #000000;
+      --color-botones: #00FF37;
+      --color-translucida: #00ff80cc;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--color-Fondo);
+      color: #ffffff;
+    }
+
+    header {
+      background-color: var(--color-navbar);
+      color: var(--color-botones);
+      padding: 0.5em 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header nav a {
+      color: var(--color-botones);
+      margin-left: 1.5em;
+      text-decoration: none;
+    }
+
+    header nav a:hover {
+      border: 2px solid var(--color-botones);
+      border-radius: 8px;
+      box-shadow: 0 0 10px var(--color-botones), 0 0 20px var(--color-botones);
+      background-color: rgba(0, 255, 55, 0.05);
+    }
+
+    .logo {
+      height: 100px;
+      cursor: pointer;
+    }
+
+    h1, h2 {
+      color: #00ff99;
+      text-align: center;
+      text-shadow: 0 0 10px #00ff99;
+      font-size: 2.5rem;
+    }
+
+    .subcategoria {
+      margin-top: 40px;
+    }
+
+    .libros-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .libro-card {
+      background-color: #112d3f;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 255, 153, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .libro-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #00ff99;
+    }
+
+    .libro-card img {
+      width: 100%;
+      height: auto;
+      border-bottom: 2px solid #00ff99;
+    }
+
+    .libro-card h3 {
+      font-size: 1.1rem;
+      margin: 10px;
+      color: #00ff99;
+    }
+
+    .libro-card p {
+      margin: 0 10px 10px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .btn-escuchar {
+      display: block;
+      margin: 10px;
+      padding: 10px;
+      text-align: center;
+      background-color: transparent;
+      border: 2px solid #00ff99;
+      color: #00ff99;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-escuchar:hover {
+      background-color: #00ff99;
+      color: #0f172a;
+      box-shadow: 0 0 15px #00ff99;
+    }
+
+    /* Mini reproductor */
+    #mini-player {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #112d3f;
+      padding: 15px 20px;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 -4px 15px rgba(0, 255, 153, 0.2);
+      border-top: 1px solid #00ff99;
+      z-index: 999;
+    }
+
+    #mini-player .info {
+      color: #00ff99;
+    }
+
+    #mini-player .info small {
+      color: #ccc;
+      display: block;
+    }
+
+    #mini-player audio {
+      width: 200px;
+      max-width: 100%;
+    }
+
+    .footer-elegante {
+      background-color: var(--color-navbar);
+      color: #d6d6d6;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px 20px 20px;
+      font-size: 0.9rem;
+    }
+
+    .footer-contenido {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-izquierda a,
+    .footer-derecha a {
+      color: #bbb;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-izquierda a:hover,
+    .footer-derecha a:hover {
+      color: #ffffff;
+    }
+
+    .footer-linea {
+      margin: 25px 0 15px;
+      height: 1px;
+      background-color: #1c1f26;
+      border: none;
+    }
+
+    .footer-copy {
+      text-align: center;
+      color: #888;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="img/lo.png" alt="logo" class="logo" /></a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="Audiolibros.html">Audiolibros</a>
+      <a href="Categorias.html">Categorías</a>
+      <a href="Login.html">Iniciar sesión</a>
+    </nav>
+  </header>
+
+  <h1>Categoría: Educación Financiera</h1>
+
+  <!-- Ahorro e Inversión -->
+  <section class="subcategoria">
+    <h2>Ahorro e Inversión</h2>
+    <div class="libros-grid">
+      <div class="libro-card">
+        <img src="img/padre-rico-padre-pobre.webp" alt="Libro 1">
+        <h3>Padre Rico, Padre Pobre</h3>
+        <p>Robert Kiyosaki</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/el-hombre-mas-rico-de-babilonia.webp" alt="Libro 2">
+        <h3>El Hombre Más Rico de Babilonia</h3>
+        <p>George S. Clason</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/invirtiendo-a-largo-plazo.webp" alt="Libro 3">
+        <h3>Invirtiendo a Largo Plazo</h3>
+        <p>Francisco García Paramés</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/la-bolsa-o-la-vida.webp" alt="Libro 4">
+        <h3>La Bolsa O La Vida</h3>
+        <p>Vicki Robin</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/pequeno-cerdo-capitalista.webp" alt="libro 5">
+        <h3>Pequeño Cerdo Capitalista</h3>
+        <p>Sofía Macías</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/dinero-domina-el-juego.webp" alt="Libro 6">
+        <h3>Dinero: domina el juego</h3>
+        <p>Tony Robbins</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/el-arte-de-hacer-dinero.webp" alt="Libro 7">
+        <h3>El arte de hacer dinero</h3>
+        <p>Mario Borghino</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/haz-que-el-dinero-trabaje-para-ti.webp" alt="Libro 8">
+        <h3>Haz Que El Dinero Trabaje Para Ti</h3>
+        <p>Claudia Uribe</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/como-ahorrar-dinero-14-estrategias-sencillas-e-infalibles-para-ahorrar-dinero-y-tener-libertad-financiera.webp" alt="libro 9">
+        <h3>Como Ahorrar Dinero</h3>
+        <p>Horacio Pelozo</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/mejora-tus-ingresos-guia-para-tomar-mejores-decisiones-financieras.webp" alt="Libro 10">
+        <h3>Mejora tus Ingresos! Guia Para Tomar Mejores Decisiones Financieras</h3>
+        <p>Juan Carbonel</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mente Millonaria -->
+  <section class="subcategoria">
+    <h2>Mente Millonaria</h2>
+    <div class="libros-grid">
+      <div class="libro-card">
+        <img src="img/mente-millonaria.webp" alt="Libro 1">
+        <h3>La Mente Millonaria</h3>
+        <p>Thomas J. Stanley</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/la-ciencia-de-hacerse-rico.webp" alt="Libro 2">
+        <h3>La ciencia de Hacerse Rico</h3>
+        <p>Wallace D. Wattles</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/la-psicologia-del-dinero.webp" alt="Libro 3">
+        <h3>La psicología del dinero</h3>
+        <p>Morgan Housel</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/como-piensan-los-ricos.webp" alt="Libro 4">
+        <h3>Como Piensan Los Ricos</h3>
+        <p>Morgan Housel</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/transformacion-total-de-su-dinero-edicion-clasica-un-plan-efectivo-para-alcanzar-bienestar-financiero.webp" alt="libro 5">
+        <h3>La Transformación Total de su Dinero</h3>
+        <p>Dave Ramsey</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/mente-millonaria-gerardo.webp" alt="Libro 6">
+        <h3>Mente Millonaria</h3>
+        <p>Gerardo Garcia Manjarrez</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/el-codigo-de-la-mente-millonaria.webp" alt="Libro 7">
+        <h3>El Código de la Mente Millonaria<h3>
+        <p>Muñoz, Carlos Master</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/el-millonario-de-la-puerta-de-al-lado-thomas-j-stanley-william-d-danko-libro-fisico.webp" alt="Libro 8">
+        <h3>El Millonario de la Puerta de al Lado</h3>
+        <p>Thomas J. Stanley &<br> William D. Danko</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/la-via-rapida-del-millonario.webp" alt="libro 9">
+        <h3>La Via Rapida del Millonario</h3>
+        <p>M. J. DeMarco</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/Principios.webp" alt="Libro 10">
+        <h3>Principios: Vida y Trabajo</h3>
+        <p>Ray Dalio</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Libertad Financiera -->
+  <section class="subcategoria">
+    <h2>Libertad Financiera</h2>
+    <div class="libros-grid">
+      <div class="libro-card">
+        <img src="img/independizate-de-papa-estado-empieza-a-invertir-hoy-y-jubilate-millonario.webp" alt="Libro 1">
+        <h3>Independízate de Papá Estado</h3>
+        <p>Carlos Galán</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/libertad-inmobiliaria-consigue-la-libertad-financiera-con-la-inversion-inmobiliaria.webp" alt="Libro 2">
+        <h3>Libertad Inmobiliaria</h3>
+        <p>Carlos Galán</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/el-codigo-del-dinero.webp" alt="Libro 3">
+        <h3>El Código del Dinero</h3>
+        <p>Raimon Samsó</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/vivir-sin-jefe.webp" alt="Libro 4">
+        <h3>Vivir Sin Jefe</h3>
+        <p>Sergio Fernández</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/el-millonario-automatico-dueno-de-casa-como-acabar-rico-al-comprar-la-casa-de-tus-suenos.webp" alt="libro 5">
+        <h3>El Millonario Automatico Dueño de Casa</h3>
+        <p>David Bach</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/libertad-financiera.webp" alt="Libro 6">
+        <h3>Libertad Financiera</h3>
+        <p>Sergio Fernández</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/un-inmueble-al-ano-no-hace-dano.webp" alt="Libro 7">
+        <h3>Un Inmueble al Año No Hace Daño</h3>
+        <p>Carlos Devis</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/un-pequeño-empujon.webp" alt="Libro 8">
+        <h3>Un Pequeño Empujón</h3>
+        <p>Richard H. Thaler </p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/las-leyes-del-exito.webp" alt="libro 9">
+        <h3>Las Leyes Del Exito</h3>
+        <p>Napoleón Hill</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/invierte-con-poco.webp" alt="Libro 10">
+        <h3>Invierte con Poco</h3>
+        <p>Natalia de Santiago </p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+    </div>
+  </section>
+  <!-- Educación Financiera -->
+  <section class="subcategoria">
+    <h2>Educación Financiera</h2>
+    <div class="libros-grid">
+      <div class="libro-card">
+        <img src="img/educacion-financiera-para-principiantes-y-dummies.webp" alt="Libro 1">
+        <h3>Educación Financiera para Principiantes y Dummies</h3>
+        <p>Giovanni Rigters</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/hablemos-de-dinero-educacion-financiera-para-ninos.webp" alt="Libro 2">
+        <h3>Hablemos de Dinero: Educación Financiera Para Niños</h3>
+        <p>Jd Repko</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/plan-financiero-educacion-financiera.webp" alt="Libro 3">
+        <h3>Plan Financiero: Educación Financiera</h3>
+        <p>Denis Aguilar Urbina</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/como-salir-de-deudas-si-no-tengo-dinero-recupera-tu-tranquilidad-y-libertad-financiera-secretos-de-educacion-financiera-vive-libre-de-deuda-y-afina-tus-finanzas-personales-no-mas-necesito-dinero.webp" alt="Libro 4">
+        <h3>Cómo Salir de Deudas si no Tengo Dinero</h3>
+        <p>David Emmied</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/aprende-a-administrar-el-dinero-educacion-financiera-desde-ninos-o-adolescentes-como-ensenar-a-tus-hijos-a-ahorrar-gastar-e-invertir-de-forma-intel.webp" alt="libro 5">
+        <h3>Aprende a Administrar el Dinero</h3>
+        <p>Publicaciones Alejandría</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/7-habitos-inteligentes-de-personas-que-se-hicieron-millonarias-secretos-infalibles-para-lograr-tu-libertad-financiera-impulsa-tu-educacion-financiera-y-tus-finanzas-personales.webp" alt="Libro 6">
+        <h3>7 Habitos Inteligentes de Personas que se Hicieron Millonarias</h3>
+        <p>Gustavo Adolfo Avila</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/la-formula-para-ganar-tu-primer-millon-de-dolares.webp" alt="Libro 7">
+        <h3>La fórmula para ganar tu primer millón de dólares</h3>
+        <p>Coral Mujaes</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/que-hago-con-mi-dinero-como-salvaguardar-tus-ahorros-en-medio-de-la-tempestad.webp" alt="Libro 8">
+        <h3>¿Que Hago con mi Dinero?</h3>
+        <p>Martí Saballs</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/por-que-los-ricos-se-vuelven-mas-ricos.webp" alt="libro 9">
+        <h3>Por Qué Los Ricos Se Vuelven Mas Ricos</h3>
+        <p>Robert T. Kiyosaki</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+      <div class="libro-card">
+        <img src="img/guia-para-no-estar-pelado.webp" alt="Libro 10">
+        <h3>Guía para no estar pelado</h3>
+        <p>Juan Camilo Vega Barbosa</p>
+        <a href="#" class="btn-escuchar">▶ Escuchar</a>
+      </div>
+    </div>
+  </section>
+  
+<!-- Mini Reproductor -->
+<div id="mini-player">
+  <div class="info">
+    <strong id="titulo-libro">Reproduciendo...</strong>
+    <small id="autor-libro">Autor</small>
+  </div>
+  <audio id="audio-player" controls autoplay></audio>
+</div>
+
+<script>
+  const audios = {
+// Ahorro e Inversión
+    "Padre Rico, Padre Pobre": {
+      autor: "Robert Kiyosaki",
+      src: "Sound/premium/"
+    },
+    "El Hombre Más Rico de Babilonia": {
+      autor: "George S. Clason",
+      src: "Sound/premium/"
+    },
+    "Invirtiendo a Largo Plazo": {
+      autor: "Francisco García Paramés",
+      src: "Sound/premium/"
+    },
+    "La Bolsa O La Vida": {
+      autor: "Vicki Robin",
+      src: "Sound/premium/"
+    },
+    "Pequeño Cerdo Capitalista": {
+      autor: "Sofía Macías",
+      src: "Sound/premium/"
+    },
+    "Dinero: domina el juego": {
+      autor: "Tony Robbins",
+      src: "Sound/premium/"
+    },
+    "El arte de hacer dinero": {
+      autor: "Mario Borghino",
+      src: "Sound/premium/"
+    },
+    "Haz Que El Dinero Trabaje Para Ti": {
+      autor: "Claudia Uribe",
+      src: "Sound/premium/"
+    },
+    "Como Ahorrar Dinero": {
+      autor: "Horacio Pelozo",
+      src: "Sound/premium/"
+    },
+    "Mejora tus Ingresos! Guia Para Tomar Mejores Decisiones Financieras": {
+      autor: "Juan Carbonel",
+      src: "Sound/premium/"
+    },
+
+// Mente Millonaria
+    "La Mente Millonaria": {
+      autor: "Thomas J. Stanley",
+      src: "Sound/premium/"
+    },
+    "La ciencia de Hacerse Rico": {
+      autor: "Wallace D. Wattles",
+      src: "Sound/premium/"
+    },
+    "La psicología del dinero": {
+      autor: "Morgan Housel",
+      src: "Sound/premium/"
+    },
+    "Como Piensan Los Ricos": {
+      autor: "Morgan Housel",
+      src: "Sound/premium/"
+    },
+    "La Transformación Total de su Dinero": {
+      autor: "Dave Ramsey",
+      src: "Sound/premium/"
+    },
+    "Mente Millonaria": {
+      autor: "Gerardo Garcia Manjarrez",
+      src: "Sound/premium/"
+    },
+    "El Código de la Mente Millonaria": {
+      autor: "Muñoz, Carlos Master",
+      src: "Sound/premium/"
+    },
+    "El Millonario de la Puerta de al Lado": {
+      autor: "Thomas J. Stanley & William D. Danko",
+      src: "Sound/premium/"
+    },
+    "La Via Rapida del Millonario": {
+      autor: "M. J. DeMarco",
+      src: "Sound/premium/"
+    },
+    "Principios: Vida y Trabajo": {
+      autor: "Ray Dalio",
+      src: "Sound/premium/"
+    },
+
+// Libertad Financiera
+    "Independízate de Papá Estado": {
+      autor: "Carlos Galán",
+      src: "Sound/premium/"
+    },
+    "Libertad Inmobiliaria": {
+      autor: "Carlos Galán",
+      src: "Sound/premium/"
+    },
+    "El Código del Dinero": {
+      autor: "Raimon Samsó",
+      src: "Sound/premium/"
+    },
+    "Vivir Sin Jefe": {
+      autor: "Sergio Fernández",
+      src: "Sound/premium/"
+    },
+    "El Millonario Automatico Dueño de Casa": {
+      autor: "David Bach",
+      src: "Sound/premium/"
+    },
+    "Libertad Financiera": {
+      autor: "Sergio Fernández",
+      src: "Sound/premium/"
+    },
+    "Un Inmueble al Año No Hace Daño": {
+      autor: "Carlos Devis",
+      src: "Sound/premium/"
+    },
+    "Un Pequeño Empujón": {
+      autor: "Richard H. Thaler",
+      src: "Sound/premium/"
+    },
+    "Las Leyes Del Exito": {
+      autor: "Napoleón Hill",
+      src: "Sound/premium/"
+    },
+    "Invierte con Poco": {
+      autor: "Natalia de Santiago",
+      src: "Sound/premium/"
+    },
+  
+// Educación Financiera
+    "Educación Financiera para Principiantes y Dummies": {
+      autor: "Giovanni Rigters",
+      src: "Sound/premium/"
+    },
+    "Hablemos de Dinero: Educación Financiera Para Niños": {
+      autor: "Jd Repko",
+      src: "Sound/premium/"
+    },
+    "Plan Financiero: Educación Financiera": {
+      autor: "Denis Aguilar Urbina",
+      src: "Sound/premium/"
+    },
+    "Cómo Salir de Deudas si no Tengo Dinero": {
+      autor: "David Emmied",
+      src: "Sound/premium/"
+    },
+    "Aprende a Administrar el Dinero": {
+      autor: "Publicaciones Alejandría",
+      src: "Sound/premium/"
+    },
+    "7 Habitos Inteligentes de Personas que se Hicieron Millonarias": {
+      autor: "Gustavo Adolfo Avila",
+      src: "Sound/premium/"
+    },
+    "La fórmula para ganar tu primer millón de dólares": {
+      autor: "Coral Mujaes",
+      src: "Sound/premium/"
+    },
+    "¿Que Hago con mi Dinero?": {
+      autor: "Martí Saballs",
+      src: "Sound/premium/"
+    },
+    "Por Qué Los Ricos Se Vuelven Mas Ricos": {
+      autor: "Robert T. Kiyosaki",
+      src: "Sound/premium/"
+    },
+    "Guía para no estar pelado": {
+      autor: "Juan Camilo Vega Barbosa",
+      src: "Sound/premium/"
+    }
+  };
+
+  const botones = document.querySelectorAll(".btn-escuchar");
+  const miniPlayer = document.getElementById("mini-player");
+  const titulo = document.getElementById("titulo-libro");
+  const autor = document.getElementById("autor-libro");
+  const audio = document.getElementById("audio-player");
+
+  botones.forEach(boton => {
+    boton.addEventListener("click", e => {
+      e.preventDefault();
+      const card = boton.closest(".libro-card");
+      const nombreLibro = card.querySelector("h3").textContent;
+
+      if (audios[nombreLibro]) {
+        titulo.textContent = nombreLibro;
+        autor.textContent = audios[nombreLibro].autor;
+        audio.src = audios[nombreLibro].src;
+        miniPlayer.style.display = "flex";
+        audio.play();
+      } else {
+        alert("Audio no disponible para: " + nombreLibro);
+      }
+    });
+  });
+</script>
+<br>
+  <footer class="footer-elegante">
+    <div class="footer-contenido">
+      <div class="footer-izquierda">
+        <a href="https://www.youtube.com/@AudioLibrosco"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/audiolibrosco/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="footer-derecha">
+        <a href="index.html">Inicio</a>
+        <a href="Audiolibros.html">Audiolibros</a>
+        <a href="politicas.html">Políticas de uso</a>
+      </div>
+    </div>
+    <div class="footer-linea"></div>
+    <div class="footer-copy">
+      © Audiolibros Company Monse ® – Todos los derechos reservados 2025
+    </div>
+  </footer>
+</body>
+</html>

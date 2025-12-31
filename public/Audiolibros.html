@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audiolibros - Plataforma</title>
+
+  <link rel="icon" type="image/png" href="img/lo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="main.css" />
+
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <img src="img/lo.png" alt="logo" class="logo" />
+    </a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="Audiolibros.html" class="active">Audiolibros</a>
+      <a href="Categorias.html">Categorías</a>
+      <a href="login.html">Iniciar sesión</a>
+    </nav>
+  </header>
+
+  <section class="Lib">
+    <h2 class="Tittle-Lib">Audiolibros Destacados</h2>
+
+    <div class="info-tags">
+      <a href="?filter=top" class="tag">🔥 Top de la semana</a>
+      <a href="?filter=morning" class="tag">☀️ Para empezar tu día</a>
+      <a href="?filter=expert" class="tag">⭐ Lo más recomendado por expertos</a>
+    </div>
+
+    <div class="libros">
+      <a href="el-poder-del-habito.html" class="libro-link">
+        <div class="libro" data-category="top morning">
+          <img src="img/EL_poder_de_los_habitos.webp" alt="El Poder del Hábito">
+          <h2 class="Titulo">El Poder Del Hábito</h2>
+          <p class="Autor">Charles Duhigg</p>
+        </div>
+      </a>
+
+      <a href="los-7-habitos-de-la-gente-altamente-efectiva.html" class="libro-link">
+        <div class="libro" data-category="expert">
+          <img src="img/content.jpeg" alt="Los 7 Hábitos">
+          <h2 class="Titulo">Los 7 Hábitos De La Gente Altamente Efectiva</h2>
+          <p class="Autor">Stephen R. Covey</p>
+        </div>
+      </a>
+
+      <a href="piensa-y-hazte-rico.html" class="libro-link">
+        <div class="libro" data-category="top">
+          <img src="img/napoli.jpeg" alt="Piensa y Hazte Rico">
+          <h2 class="Titulo">Piensa Y Hazte Rico</h2>
+          <p class="Autor">Napoleon Hill</p>
+        </div>
+      </a>
+
+      <a href="habitos-atomicos.html" class="libro-link">
+        <div class="libro" data-category="morning expert">
+          <img src="img/resumen-del-libro-habitos-atomicos-de-james-clear.webp" alt="Hábitos Atómicos">
+          <h2 class="Titulo">Hábitos Atómicos</h2>
+          <p class="Autor">James Clear</p>
+        </div>
+      </a>
+
+      <a href="atrevete-a-liderar.html" class="libro-link">
+        <div class="libro" data-category="morning">
+          <img src="img/atreve.webp" alt="Atrévete a Liderar">
+          <h2 class="Titulo">Atrévete a Liderar</h2>
+          <p class="Autor">Brene Brown</p>
+        </div>
+      </a>
+
+      <a href="el-metodo-lean-startup.html" class="libro-link">
+        <div class="libro" data-category="expert">
+          <img src="img/el metodo.webp" alt="Lean Startup">
+          <h2 class="Titulo">El Método Lean Startup</h2>
+          <p class="Autor">Eric Ries</p>
+        </div>
+      </a>
+
+      <a href="empieza-con-el-porque.html" class="libro-link">
+        <div class="libro" data-category="top expert">
+          <img src="img/Empieza con el porqué.png" alt="Empieza con el porqué">
+          <h2 class="Titulo">Empieza Con El Porqué</h2>
+          <p class="Autor">Simon Sinek</p>
+        </div>
+      </a>
+
+      <a href="la-sorprendente-verdad-sobrew-que-nos-motiva.html" class="libro-link">
+        <div class="libro" data-category="morning">
+          <img src="img/motiva.jpeg" alt="Qué nos motiva">
+          <h2 class="Titulo">La Sorprendente Verdad Sobre Qué Nos Motiva</h2>
+          <p class="Autor">Daniel H. Pink</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="suscripcion-inspiradora">
+    <div class="overlay"></div>
+    <div class="texto-suscripcion">
+      <h2>Todo cambia cuando entrenás tu mente</h2>
+      <p>Convertí cada momento en una oportunidad de crecimiento.</p>
+      <p>Escuchá ideas, aprendé de los grandes, elevá tu manera de pensar.</p>
+      <p>Tu mentalidad crea tu realidad. Empezá hoy.</p>
+      <a href="registre.html" class="btn-inspira">Empieza hoy</a>
+    </div>
+  </section>
+
+  <section class="precios-suscripcion">
+    <div class="intro-precios">
+      <h2>Elige Tu Camino de Transformación</h2>
+      <p>Accede a cientos de audiolibros, recursos exclusivos y entrenamientos mentales<br>
+        diseñados para tu crecimiento personal. Sin límites y sin excusas.</p>
+    </div>
+
+    <div class="planes">
+      <div class="plan">
+        <h3>Plan Básico</h3>
+        <p class="subtexto">Cobro mensual automático</p>
+        <p class="precio-original">$19.90</p>
+        <p class="precio"><span>$12.90</span>/mes</p>
+        <a href="https://buy.stripe.com/test_dRmdR8cFiblL5BlcRVdEs00" class="btn-suscribe">Suscribirse</a>
+        <ul>
+          <li>Acceso ilimitado</li>
+          <li>Actualizaciones frecuentes</li>
+          <li>Soporte básico</li>
+        </ul>
+      </div>
+
+      <div class="plan destacado">
+        <div class="etiqueta-descuento">AHORRA $179.90</div>
+        <h3>Pase Anual</h3>
+        <p class="subtexto">Pago único anual</p>
+        <p class="precio-original">$238.80</p>
+        <p class="precio"><span>$4.99</span>/mes</p>
+        <a href="#" class="btn-suscribe">Suscribirse</a>
+        <ul>
+          <li>Precio reducido</li>
+          <li>Acceso a mentorías</li>
+          <li>Comunidad privada</li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <h3>Acceso de por vida</h3>
+        <p class="subtexto">Pago único</p>
+        <p class="precio-original">$837</p>
+        <p class="precio"><span>$499</span></p>
+        <a href="#" class="btn-suscribe">Acceso para siempre</a>
+        <ul>
+          <li>Sin renovaciones</li>
+          <li>Soporte premium</li>
+          <li>Actualizaciones garantizadas</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-elegante">
+    <div class="footer-contenido">
+      <div class="footer-izquierda">
+        <a href="https://www.youtube.com/@AudioLibrosco"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/audiolibrosco/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="footer-derecha">
+        <a href="index.html">Inicio</a>
+        <a href="Audiolibros.html">Audiolibros</a>
+        <a href="politicas.html">Políticas de uso</a>
+      </div>
+    </div>
+    <div class="footer-linea"></div>
+    <div class="footer-copy">
+      © Audiolibros Company Monse ® – Todos los derechos reservados 2025
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

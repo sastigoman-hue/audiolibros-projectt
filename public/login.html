@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iniciar sesión</title>
+  <link rel="icon" type="image/png" href="img/lo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('img/lo.png') no-repeat center fixed;
+      background-size: contain;
+      background-color: #0f172a;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: rgba(17, 45, 63, 0.9);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 255, 51, 0.3);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #00ff99;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: transparent;
+      color: #00ff99;
+      border: 2px solid #00ff99;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00ff99;
+      color: #0f172a;
+      box-shadow: 0 0 15px #00ff99;
+    }
+
+    .registro-link {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .registro-link a {
+      color: #00ff99;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .registro-link a:hover {
+      text-decoration: underline;
+      color: #00ffaa;
+    }
+
+    .social-login {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #bbb;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid #444;
+      margin: 0 10px;
+    }
+
+    .social-icon {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: white;
+      padding: 8px;
+      transition: transform 0.3s;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px #00ff99;
+    }
+
+    .social-icon img {
+      width: 90%;
+      height: auto;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Iniciar sesión</h2>
+    <form id="loginForm">
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" required>
+
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" required>
+      
+      <button type="submit" id="loginBtn">Entrar</button>
+      <div class="social-login">
+  <div class="divider"><span>O inicia sesión con</span></div>
+  <a href="/auth/google" class="social-icon">
+    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google">
+  </a>
+</div>
+      
+    </form>
+
+    <!-- 🔗 Botón de redirección a registro -->
+    <div class="registro-link">
+      ¿No tienes cuenta? <a href="registre.html">Registrarse</a>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = location.hostname === 'localhost'
+      ? 'http://localhost:5000'
+      : 'https://audiolibrosco.com';
+
+    document.getElementById("loginForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const btn = document.getElementById("loginBtn");
+
+      btn.disabled = true;
+      btn.textContent = "Cargando...";
+
+      try {
+        const res = await fetch(`${API_URL}/api/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.token) {
+          localStorage.setItem("token", data.token);
+
+          // Verificar suscripción
+          const subs = await fetch(`${API_URL}/api/validate-subscription`, {
+            headers: { Authorization: "Bearer " + data.token }
+          });
+
+          if (subs.ok) {
+            window.location.href = "Categorias.html";
+          } else {
+            window.location.href = "planes.html";
+          }
+        } else {
+          alert(data.message || "Credenciales inválidas");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Error al iniciar sesión");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Entrar";
+      }
+    });
+  </script>
+</body>
+</html>

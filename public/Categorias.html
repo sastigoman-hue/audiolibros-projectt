@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categorías - Audiolibros</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="img/lo.png">
+  <link rel="stylesheet" href="categoria.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <a href="index.html">
+      <img src="img/lo.png" alt="logo" class="logo" />
+    </a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="Audiolibros.html">Audiolibros</a>
+      <a href="categorias.html">Categorías</a>
+      <a href="login.html">Iniciar sesión</a>
+    </nav>
+  </header>
+
+  <!-- CATEGORÍAS -->
+  <section class="Lib">
+    <h2 class="Tittle-Lib">Categorías</h2>
+    <div class="menu-categorias">
+      <div class="categoria">
+        <div class="categoria-header">
+          <span>Desarrollo Personal</span>
+          <i class="fas fa-chevron-right icono"></i>
+        </div>
+        <div class="subcategorias">
+          <a href="#">Productividad</a>
+          <a href="#">Mentalidad</a>
+          <a href="#">Hábitos positivos</a>
+        </div>
+      </div>
+
+      <div class="categoria">
+        <div class="categoria-header">
+          <span>Superación Personal</span>
+          <i class="fas fa-chevron-right icono"></i>
+        </div>
+        <div class="subcategorias">
+          <a href="#">Autoconfianza</a>
+          <a href="#">Resiliencia</a>
+          <a href="#">Crecimiento interior</a>
+        </div>
+      </div>
+
+      <div class="categoria">
+        <div class="categoria-header">
+          <span>Motivación y Éxito</span>
+          <i class="fas fa-chevron-right icono"></i>
+        </div>
+        <div class="subcategorias">
+          <a href="#">Historias inspiradoras</a>
+          <a href="#">Disciplina</a>
+          <a href="#">Enfoque y metas</a>
+        </div>
+      </div>
+
+      <div class="categoria">
+        <div class="categoria-header">
+          <span>Liderazgo y Productividad</span>
+          <i class="fas fa-chevron-right icono"></i>
+        </div>
+        <div class="subcategorias">
+          <a href="#">Toma de decisiones</a>
+          <a href="#">Liderazgo consciente</a>
+          <a href="#">Gestión del tiempo</a>
+        </div>
+      </div>
+
+      <div class="categoria">
+        <div class="categoria-header">
+          <span>Educación Financiera</span>
+          <i class="fas fa-chevron-right icono"></i>
+        </div>
+        <div class="subcategorias">
+          <a href="#">Ahorro e inversión</a>
+          <a href="#">Mente millonaria</a>
+          <a href="#">Libertad financiera</a>
+        </div>
+      </div>
+
+      <div class="categoria">
+        <div class="categoria-header">
+          <span>Herramientas de Transformación</span>
+          <i class="fas fa-chevron-right icono"></i>
+        </div>
+        <div class="subcategorias">
+          <a href="#">Coaching</a>
+          <a href="#">PNL y neurociencia</a>
+          <a href="#">Meditación y enfoque</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-elegante">
+    <div class="footer-contenido">
+      <div class="footer-izquierda">
+        <a href="https://www.youtube.com/@AudioLibrosco" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/audiolibrosco/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="footer-derecha">
+        <a href="index.html">Inicio</a>
+        <a href="Audiolibros.html">Audiolibros</a>
+        <a href="politicas.html">Políticas de uso</a>
+      </div>
+    </div>
+    <div class="footer-linea"></div>
+    <div class="footer-copy">
+      © Audiolibros Company Monse ® – Todos los derechos reservados 2025
+    </div>
+  </footer>
+
+  <script>
+    const categorias = document.querySelectorAll('.categoria');
+    categorias.forEach(cat => {
+      cat.querySelector('.categoria-header').addEventListener('click', () => {
+        cat.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
